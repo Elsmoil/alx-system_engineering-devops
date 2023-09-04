@@ -1,2 +1,2 @@
 #!/bin/bash
-find -n 3 etc/iacta
+head  -n 3 iacta
