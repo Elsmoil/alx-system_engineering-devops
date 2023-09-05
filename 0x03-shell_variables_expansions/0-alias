@@ -1,1 +1,2 @@
-0x03-shell_variables_expansions
+#!/bin/bash
+echo rm *> ls
