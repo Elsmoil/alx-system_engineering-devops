@@ -6,13 +6,13 @@ file {'/etc/ssh/ssh_config':
 }
 
 file_line { 'Turn off passwd auth':
-  path  => '~/.ssh/config',
+  path  => '/etc/ssh/ssh_config',
   line  => 'PasswordAuthentication no',
   match => '^PasswordAuthentication',
 }
 
 file_line { 'Declare identity file':
-  path  => '~/.ssh/config',
+  path  => '/etc/ssh/ssh_config',
   line  => "IdentityFile ~/.ssh/school",
   match => '^IdentityFile',
 }
