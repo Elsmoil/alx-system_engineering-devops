@@ -3,3 +3,5 @@
 
 sudo service nginx start
 sudo ufw allow 'Nginx HTTP'
+sudo update-rc.d nginx defaults
+sudo update-rc.d nginx enable
