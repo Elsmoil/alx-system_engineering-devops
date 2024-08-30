@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Function to get the A record information
+get_record_info() {
+    local subdomain=$1
+    local domain=$2
+    
+    result=$(dig "${subdomain}.${domain}" | awk '/ANSWER SECTION:/ {getline; print}')
+    
+    if [ -z "$result" ]; then
+        echo "No A record found for ${subdomain}.${domain}"
+    else
+        record_type=$(echo "$result" | awk '{print $4}')
+        destination=$(echo "$result" | awk '{print $5}')
+        echo "The subdomain ${subdomain} is a ${record_type} record and points to ${destination}"
+    fi
+}
+
+# Main logic to handle arguments
+domain=$1
+subdomain=$2
+
+if [ -z "$subdomain" ]; then
+    subdomains=("www" "lb-01" "web-01" "web-02")
+    for sub in "${subdomains[@]}"; do
+        get_record_info "$sub" "$domain"
+    done
+else
+    get_record_info "$subdomain" "$domain"
+fi
