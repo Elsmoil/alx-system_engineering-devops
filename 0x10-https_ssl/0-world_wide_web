@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-
 # Function to get the A record information
+
 get_record_info() {
     local subdomain=$1
     local domain=$2
