@@ -1,0 +1,9 @@
+#!/bin/bash
+
+read name
+
+git add .
+
+echo "what is the commit name? "
+
+git push
