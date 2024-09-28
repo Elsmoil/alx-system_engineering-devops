@@ -20,11 +20,11 @@ def number_of_subscribers(subreddit):
              If the subreddit is invalid, returns 0.
     """
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    headers = {"User-Agent": "My Mozilla/5.0 by Elsmoil ALX School"}
+    headers = {"User-Agent": "linux:0x16.api.advanced:v2.0.0 (by  u/Curious-Hold4912)"}
 
     response = requests.get(url, headers=headers, allow_redirects=False)
 
     if response.status_code == 200:
         data = response.json()  # Correctly indented
-        return data.get("data", {}).get("subscribers")  # Correct indentation
+        return data.get("data", {}).get("subscribers", 0)  # Correct indentation
     return 0  # Proper return statement placement
